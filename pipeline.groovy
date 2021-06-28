@@ -2,11 +2,11 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                git url: 'https://github.com/asegalj/jenkins_pipeline.git', branch: 'main'
-            }
-        }
+        // stage('Checkout') {
+        //     steps {
+        //         git url: 'https://github.com/asegalj/jenkins_pipeline.git', branch: 'main'
+        //     }
+        // }
 
     stage('Build') {
         steps {
