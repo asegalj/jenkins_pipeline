@@ -32,7 +32,7 @@ pipeline {
         }
     }
     post{
-        alway {
+        always {
             echo 'Prints whether deploy happend or not, success of failure'
         }
     }
