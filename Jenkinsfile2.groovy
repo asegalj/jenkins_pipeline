@@ -23,7 +23,8 @@ pipeline {
                 message 'Deploy?'
                 ok 'Do it!'
                 parameters {
-                    string(name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', description: 'Target deployment environment')
+                    string(name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', description: 'Target deployment environment'),
+                    string(name: 'TARGET_CONFIGURATION', defaultValue: 'LEAN', description: 'Target configuration environment')
                 }
             }
             steps {
