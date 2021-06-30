@@ -1,18 +1,15 @@
 pipeline {
-      agent {
+    agent {
         docker {
             image 'maven:3.8.1-adoptopenjdk-11'
             args '-v /root/.m2:/root/.m2'
         }
     }
-    
-    
-    
+
     stages {
-        stage('checkout'){
-           steps {
-            git 'https://github.com/jglick/simple-maven-project-with-tests.git'
-            
+        stage('checkout') {
+            steps {
+                git 'https://github.com/jglick/simple-maven-project-with-tests.git'
             }
         }
         stage('Build') {
@@ -20,7 +17,6 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
-
 
             post {
                 // If Maven was able to run the tests, even if some of the test
@@ -30,6 +26,5 @@ pipeline {
                     archiveArtifacts 'target/*.jar'
                 }
             }
-        }
     }
 }
