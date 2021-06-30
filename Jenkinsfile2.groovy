@@ -20,7 +20,7 @@ pipeline {
                 echo "Testing release ${RELEASE}..."
                  echo "executing python script"
                            sh """\
-                    #!/usr/bin/env python
+                    python
                     import json
                     with open('result.json', 'w') as f:
                             json.dump('{"created by": "python script"}', f)
