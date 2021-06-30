@@ -13,9 +13,18 @@ pipeline {
                 echo "Building release ${RELEASE} with log level ${LOG_LEVEL}..."
             }
         }
+        
+
         stage('Test') {
             steps {
                 echo "Testing release ${RELEASE}..."
+                           sh """\
+                    echo "executing python script"
+                    #!/usr/bin/env python
+                    import json
+                    with open('result.json', 'w') as f:
+                            json.dump('{"created by": "python script"}', f)
+                    """.stripIndent()
             }
         }
         stage('Deploy') {
