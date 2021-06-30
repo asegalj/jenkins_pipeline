@@ -31,6 +31,21 @@ pipeline {
                 echo "Deploying release ${RELEASE} to environment ${TARGET_ENVIRONMENT}"
             }
         }
+
+        stage('Deploy Configuration') {
+            input {
+                message 'Deploy?'
+                ok 'Do it!'
+                parameters {
+                    string(name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', description: 'Target deployment environment'),
+                    string(name: 'TARGET_CONFIGURATION', defaultValue: 'LEAN', description: 'Target configuration environment')
+                }
+            }
+            steps {
+                echo "Deploying release ${RELEASE} to environment ${TARGET_ENVIRONMENT}"
+            }
+        }
+
     }
     post{
         always {
