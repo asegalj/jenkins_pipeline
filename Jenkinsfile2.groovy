@@ -18,8 +18,8 @@ pipeline {
         stage('Test') {
             steps {
                 echo "Testing release ${RELEASE}..."
+                 echo "executing python script"
                            sh """\
-                    echo "executing python script"
                     #!/usr/bin/env python
                     import json
                     with open('result.json', 'w') as f:
