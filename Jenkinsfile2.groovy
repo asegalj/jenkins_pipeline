@@ -15,18 +15,7 @@ pipeline {
         }
         
 
-        stage('Test') {
-            steps {
-                echo "Testing release ${RELEASE}..."
-                 echo "executing python script"
-                           sh """\
-                    python
-                    import json
-                    with open('result.json', 'w') as f:
-                            json.dump('{"created by": "python script"}', f)
-                    """.stripIndent()
-            }
-        }
+      
         stage('Deploy') {
             input {
                 message 'Deploy?'
