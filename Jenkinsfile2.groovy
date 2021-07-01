@@ -43,6 +43,12 @@ pipeline {
     post{
         always {
             echo 'Prints whether deploy happend or not, success of failure'
+              sh "git checkout -b Dev"
+                  sh "git add result.json"
+                  sh "git commit -m 'add result.json file to Dev Stage'"
+                  sh "git checkout -b Staging"          
+                  //  git commit -m "add result.json file to ${env.RELEASE}" 
+                  sh "git push https://github.com/asegalj/jenkins-git.git Dev Staging"
         }
     }
 }
