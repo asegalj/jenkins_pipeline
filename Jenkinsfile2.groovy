@@ -13,24 +13,10 @@ pipeline {
                 echo "Building release ${RELEASE} with log level ${LOG_LEVEL}..."
             }
         }
-        
-
-      
-        stage('Deploy') {
-            input {
-                message 'Deploy?'
-                ok 'Do it!'
-                parameters {
-                    string(name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', description: 'Target deployment environment')
-                }
-            }
-            steps {
-                echo "Deploying release ${RELEASE} to environment ${TARGET_ENVIRONMENT}"
-            }
-        }
+     
     }
     post{
-        success {
+        always {
                    sh "git config  user.email 'devopstasks2021@gmail.com'"
                   sh  "git config  user.name 'devops2021devops'"
                   sh "git config  user.password 'Devops2021'"
