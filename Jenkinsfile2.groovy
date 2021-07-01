@@ -38,7 +38,9 @@ pipeline {
                   sh "git add result.json"
                   sh "ls"
                   sh "git commit -m 'add result.json file to Dev Stage'"
-                  sh "git checkout -b Staging | git checkout Staging"          
+                  sh "git checkout -b Staging | git checkout Staging" 
+                sh "git config --global user.email 'you@example.com'"
+                   sh "git config --global user.name 'Your Name'"
                   //  git commit -m "add result.json file to ${env.RELEASE}" 
                   sh "git push https://github.com/asegalj/jenkins-git.git Dev Staging"
         }
