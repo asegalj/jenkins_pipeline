@@ -31,9 +31,11 @@ pipeline {
     }
     post{
         always {
-            echo 'echo "test" > result.json'
-              sh "git checkout -b Dev | git checkout Dev"
+                 
+                  sh "git checkout -b Dev | git checkout Dev"
+                 echo 'echo "test" > result.json'
                   sh "git add result.json"
+                  sh "ls"
                   sh "git commit -m 'add result.json file to Dev Stage'"
                   sh "git checkout -b Staging | git checkout Staging"          
                   //  git commit -m "add result.json file to ${env.RELEASE}" 
