@@ -31,7 +31,7 @@ pipeline {
     }
     post{
         always {
-            echo 'Prints whether deploy happend or not, success of failure'
+            echo 'echo "test" > result.json'
               sh "git checkout -b Dev"
                   sh "git add result.json"
                   sh "git commit -m 'add result.json file to Dev Stage'"
